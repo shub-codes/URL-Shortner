@@ -3,7 +3,7 @@
 <head>
   <title>URL Shortener</title>
 </head>
-<body>
+<body style="background-color: aquamarine;">
   <h1>URL Shortener</h1>
   <form method="post" action="/">
     <label for="url">Enter an https:// URL:</label>
@@ -16,8 +16,14 @@
     >
     <button type="submit" value="submit">Submit</button>
   </form>
-    <label>Generated URL: </label>
-    <input type='text' value="{{new_url}}" style="margin-top: 10px; margin-left:35px" size="50" readonly>
+  {% if new_url %}
+  <label>Generated URL: </label>
+  <input type="text" value="{{ new_url }}" style="margin-top: 10px; margin-left:35px" size="50" readonly>
+  <br><br>
+  <label>Generated QR code </label>
+  <br><br>
+  <img src="{{ qr_path }}" alt="QR Code">
+{% endif %}
   
 </body>
 </html>
